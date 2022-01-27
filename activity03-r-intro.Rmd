@@ -132,8 +132,8 @@ print(step4)
 ```{r}
 codematrix <-matrix(step4, ncol=5)
 even <- matrix(seq(2,500,2))
-codematrix[1]-even
-codematrix[1]
+codematrix[,1]-even
+codematrix[18:24,3]-100
 ```
 
 **HQ UPDATE:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100.
