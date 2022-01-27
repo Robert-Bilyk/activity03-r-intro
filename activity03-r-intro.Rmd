@@ -113,7 +113,11 @@ Write your own code to complete the steps below.
 4. Square every number.
 
 ```{r}
-
+step1 <- top_secret+14
+step2 <- step1*18-257
+step3 <- exp(step2)
+step4 <- (step3)^2
+print(step4)
 ```
 
 **HQ UPDATE:** Headquarters has informed you that at this stage of decoding, there should be 496 numbers in the secret message that are below 17.
@@ -126,7 +130,10 @@ Write your own code to complete the steps below.
 10. Turn your matrix back into a vector.
 
 ```{r}
-
+codematrix <-matrix(step4, ncol=5)
+even <- matrix(seq(2,500,2))
+codematrix[1]-even
+codematrix[1]
 ```
 
 **HQ UPDATE:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100.
