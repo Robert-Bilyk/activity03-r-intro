@@ -56,7 +56,7 @@ Turn the `my_symbols` vector into a data frame, with the variable name "Symbol".
 
 ```{r}
 my_symbols <- data.frame(my_symbols)
-names(my_symbols) -> "Symbol"
+names(my_symbols) <- "Symbol"
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
@@ -131,9 +131,11 @@ print(step4)
 
 ```{r}
 codematrix <-matrix(step4, ncol=5)
-even <- matrix(seq(2,500,2))
-codematrix[,1]-even
-codematrix[18:24,3]-100
+even <- matrix(seq(2,502,2))
+codematrix[,1]<- codematrix[,1]-even
+codematrix[18:24,3]<- codematrix[18:24,3]-100
+codematrix[,4:5]<- codematrix[,4:5]*2
+vector1 <- c(codematrix)
 ```
 
 **HQ UPDATE:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100.
@@ -143,7 +145,10 @@ codematrix[18:24,3]-100
 13. Replace all instances of the number 39 with 20.
 
 ```{r}
-
+vector1[38:465] <- vector1[38:465]^.5
+vector1 <-round(vector1,0)
+vector1[vector1==39] <- 20
+vector1
 ```
 
 **HQ UPDATE:** Headquarters has informed you that your final message should have 421 even numbers.
@@ -155,17 +160,17 @@ codematrix[18:24,3]-100
 Use your final vector of numbers as indices for `my_symbols` to discover the final message, by running the following code:
 
 ```{r}
-stringr::str_c(my_symbols$Symbol[top_secret], collapse = "")
+stringr::str_c(my_symbols$Symbol[vector1], collapse = "")
+
 ```
 
 Google the first line of this message, if you do not recognize it, to see what it is.
 
-**delete this line and comment on what on the activity as a whole**
+very difficult but I did understand everything
 
 Comment on what you noticed about the activity as a whole.
 
-**Response**:
-
+it was mostly just modifying and performing different operations on a vector
 
 
 Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push  to your GitHub repo.
